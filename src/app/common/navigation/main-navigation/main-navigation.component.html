@@ -1,7 +1,7 @@
 <div *ngIf="messenger">
 <div id="navbar">   
-    <a href="/hohomeUserMessengerme">Inicio</a>
-    <a href="/hohomeUserMessengerme">Ver Medicamentos</a>
+    <a href="/homeUserMessengerme">Inicio</a>
+    <a href="/medicament">Ver Medicamentos</a>
     <a href="/changePassUserMessenger">Cambiar contraseña</a>
     <a href="/listPurchase">Ver Compras</a>
     <a href="/home" (click)="logout()">Salir</a>
@@ -19,9 +19,9 @@
 
   <div *ngIf="admin">
     <div id="navbar">   
-        <a href="/homeClient">Inicio</a>
+        <a href="/homeAdminUser">Inicio</a>
         <a href="/listClient">Ver Clientes</a>
-        <a href="/medicaments">Ver Medicamentos</a>
+        <a href="/listMedicament">Ver Medicamentos</a>
         <a href="/registerMedicament">Registrar Medicamentos</a>
         <a href="/registerUserAdmin">Registrar Administrador</a>
         <a href="/registerUserMessenger">Registrar Mensajero</a>
