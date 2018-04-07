@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="titulo-interna">Iniciar sesión mensajero</h1>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+        <p class="texto-interna">Ingresa a continuación tus datos de ingreso al sistema y presiona el botón "Iniciar Sesión". Si no estás registrado, contacta al administrador del sistema.</p>
+      </div>
+    </div>
+<form (ngSubmit)="onSingIn(singInForm);" #singInForm="ngForm" class="example-form">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Usuario" [(ngModel)]="user.user" name="user" required>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Contraseña" type="password" [(ngModel)]="user.password" name="password" required>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="example-button-row" [disabled]="!singInForm.form.valid" mat-button block>Iniciar sesión</button>
+    </div>
+  </div>
+ </form> 

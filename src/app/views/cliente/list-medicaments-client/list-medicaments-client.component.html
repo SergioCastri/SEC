@@ -1,0 +1,194 @@
+<div *ngIf="search">
+    <mat-card *ngFor="let data of medicament; let j = index">
+        <mat-card-actions>
+            <button mat-button (click)="back()">
+              <mat-icon>keyboard_backspace</mat-icon>
+              atras
+            </button>
+          
+    
+          </mat-card-actions>
+
+          <mat-card *ngFor="let data of medicament; let j = index">
+              <mat-card-title>
+                <p> <strong>Medicamento: </strong>{{data.medicament}}</p> 
+                <p> <strong>Costo: </strong>{{data.value}}</p> 
+                <img src="{{ data.photo}} " width="200" height="200">
+              </mat-card-title>
+              
+          <mat-card-actions>
+            <button mat-button (click)="showInfoSearch(data)">
+              <mat-icon>announcement</mat-icon>
+              Mirar detalle
+            </button>
+          
+    
+          </mat-card-actions>
+        </mat-card>
+    
+      </mat-card>
+</div>
+    
+<div *ngIf="home">
+  <div class="row">
+    <div class="col-md-12">
+        <h1 class="titulo-interna">Medicamentos</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+        <p class="texto-interna">A continuación podrás buscar el medicamento que necesitas, por nombre o tipo según tu necesidad.</p>
+    </div>
+  </div>
+
+          <form (ngSubmit)="FindByMed(findByMedForm);" #findByMedForm="ngForm" class="example-form">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput type="text" placeholder="Buscar medicamento por nombre" [(ngModel)]="medi.medicament" name="medicament">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <button class="example-button-row" [disabled]="!findByMedForm.form.valid" mat-button block>Buscar</button>
+              </div>
+              <br><br><span id="error-msg-login" [hidden]="!showErrorMessage" >{{errorMessage}}</span>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-md-12">
+              &nbsp;
+            </div>
+          </div>
+          <form (ngSubmit)="FindByCat(findByCatForm);" #findByCatForm="ngForm" class="example-form">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <mat-select placeholder="Tipo de medicamento" [(ngModel)]="medi.category" name="category">
+                  <mat-option *ngFor="let data of options" [value]="data.value">
+                    {{ data.option }}
+                  </mat-option>
+                </mat-select>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <button class="example-button-row" [disabled]="!findByCatForm.form.valid" mat-button block>Buscar</button>
+              </div>
+            </div>
+          </form>
+      
+      
+          <mat-card *ngFor="let data of medicament; let j = index">
+            <mat-card-title>
+              <p> <strong>Medicamento: </strong>{{data.medicament}}</p> 
+              <p> <strong>Costo: </strong>{{data.value}}</p> 
+            <img src="{{ data.photo}} " width="200" height="200">
+            </mat-card-title>
+      
+            <mat-card-actions>
+                <button mat-button (click)="showInfoHome(data)">
+                  <mat-icon>announcement</mat-icon>
+                  Mirar detalle
+                </button>
+              
+        
+              </mat-card-actions>
+      
+          </mat-card>
+          <div class="row">
+            <div class="col-md-12 centered" style="text-align:center;">
+              <mat-card-actions>
+                <button mat-button (click)="showProducts(data)">
+                  <mat-icon>shopping_cart</mat-icon>
+                  Ver carrito
+                </button>
+              
+        
+              </mat-card-actions>
+            </div>
+          </div>
+          
+  
+        </div>
+
+  <div *ngIf="info">
+      <mat-card-actions>
+          <button mat-button (click)="back()">
+            <mat-icon>keyboard_backspace</mat-icon>
+            atras
+          </button>
+        
+  
+        </mat-card-actions>
+      <mat-card *ngFor="let data of medicament; let j = index">
+
+  
+                <mat-card-title>
+                    <p> <strong>Medicamento: </strong>{{data.medicament}}</p> 
+                    <p> <strong>Categoria:</strong> {{data.category}}</p> 
+                    <p> <strong>Descripción: </strong>{{data.description}}</p> 
+                    <p> <strong>Caracteristicas:</strong> {{data.characterist}}</p> 
+                    <p> <strong>Volumen: </strong>{{data.volumen}}</p> 
+                    <p> <strong>Costo: </strong>{{data.value}}</p> 
+                  <img src="{{ data.photo}} " width="200" height="200">
+                </mat-card-title>
+  
+          
+      
+          <mat-card-actions>
+              <button mat-button (click)="addMedicament(data)">
+                <mat-icon>add_shopping_cart</mat-icon>
+                Añadir al carrito
+              </button>
+            
+      
+            </mat-card-actions>
+      
+      
+        </mat-card>
+  </div>
+
+  <div *ngIf="buy">
+    <h1>Productos</h1>
+      
+          <mat-card-actions>
+              <button mat-button (click)="back()">
+                <mat-icon>keyboard_backspace</mat-icon>
+                atras
+              </button>
+            
+      
+            </mat-card-actions>
+            <mat-card *ngFor="let data of medicamento; let j = index">
+              <mat-card-title>
+                <p> <strong>Medicamento: </strong>{{data.medicament}}</p> 
+                <p> <strong>Categoria:</strong> {{data.category}}</p> 
+                <p> <strong>Descripción: </strong>{{data.description}}</p> 
+                <p> <strong>Caracteristicas:</strong> {{data.characterist}}</p> 
+                <p> <strong>Volumen: </strong>{{data.volumen}}</p> 
+                <p> <strong>Costo: </strong>{{data.value}}</p> 
+              <img src="{{ data.photo}} " width="200" height="200">
+            </mat-card-title>
+              <mat-card-actions>
+                <button mat-button (click)="removeMedicament(data, j)">
+                  <mat-icon>remove_shopping_cart
+                  </mat-icon>
+                  Quitar Del carrito 
+                </button>
+              
+        
+              </mat-card-actions>
+            
+  
+   
+      
+      
+        </mat-card>
+        <mat-card-actions>
+            <button mat-button (click)="buyMedicament()">
+              <mat-icon>shop</mat-icon>
+              Comprar
+            </button>
+          
+    
+          </mat-card-actions>
+         
+  </div>

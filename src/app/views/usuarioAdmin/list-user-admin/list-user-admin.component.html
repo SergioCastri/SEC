@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-12">
+      <h1 class="titulo-interna">Usuarios administradores</h1>
+  </div>
+</div> 
+  <mat-card *ngFor = "let data of userAdmin">
+      <mat-card-header>
+      <mat-card-title>
+        <p> <strong>Nombre:</strong> {{data.name}}</p>
+        <p> <strong>Usuario: </strong>{{data.user}}</p>
+        <p> <strong>Edad:</strong> {{data.age}}</p>
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
